@@ -1,0 +1,37 @@
+1. USAGE
+========
+
+Broadcast strManager example. One sources (source) with their own IP addresses
+(IP1) send their media flow to MCU. The MCU listen it in port1. Three destinations
+with their own IP addresses (IP2, IP3 and IP4) receive the flow on their own ports
+(port2, port3 and port4).
+
+BC_strManager [source IP1] [MCU port1]
+              [destination2 IP2] [destination port2]
+              [destination3 IP3] [destination port3]
+              [destination4 IP4] [destination port4]
+
+
+2. DIAGRAM
+==========
+
+                                                     destination2(IP2)
+                                                    port2+---+
+                                           +------------>x   |
+                                           |             +---+
+                                           |
+                                           |
+                                MCU        |
+                             +------+      |
+  source(IP1)                |      |------+         destination3(IP3)
+    +---+               port1|      |               port3+---+
+    |   |------------------->x      |------------------->x   |
+    +---+                    |      |                    +---+
+                             |      |------+
+                             +------+      |
+                                           |
+                                           |
+                                           |         destination4(IP4)
+                                           |        port4+---+
+                                           +------------>x   |
+                                                         +---+

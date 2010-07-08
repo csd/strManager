@@ -1,0 +1,22 @@
+1. copy stdsoap2.cpp and stdsoap2.h files to ws folder
+
+2. generate web_service.h with function headers starting by 'ns__',
+   all of them must return an integer like:
+   
+   int ns__function(xsd__string* parameter, bool& result);
+	
+3. execute 'soapcpp2 -S web_service.h' inside ws folder
+	It generates all necessary source files in ws folder
+	and the nsmap and wsdl files
+
+4. add includes in the cpp implementation file
+
+	#include "ws/web_service.h"
+	#include "ws/soapH.h"
+	#include "ws/WS_strManager.nsmap"
+	
+5. implement all WS functions in this file changing headers, like:
+
+	int ns__function(struct soap* soap, xsd__string* parameter, bool& result)
+	
+6. always return SOAP_OK in correct executions and SOAP_FAULT otherwise

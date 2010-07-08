@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: libStrManager
+Description: Library for UDP stream management
+Version: @VERSION@
+Libs: -L${libdir} -lstrmanager
+Cflags: -I${includedir}/@GENERIC_LIBRARY_NAME@ -L${libdir}

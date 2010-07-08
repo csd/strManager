@@ -1,0 +1,36 @@
+1. USAGE
+========
+
+Zapping strManager example. Three sources (source1, source2 and source3) with
+their own IP addresses (IP1, IP2 and IP3) send their media flows to MCU. The MCU
+listen each one in a different port (port1, port2 and port3). Destination with
+their IP address receives one flow each time on port4 and can switch it by 
+pressing enter.
+
+ZAP_strManager [source1 IP1] [MCU port1] [source2 IP2] [MCU port2]
+               [source3 IP3] [MCU port3] [destination IP4] [destination port4]
+
+
+2. DIAGRAM
+==========
+
+      source1(IP1)
+        +---+
+        |   |-------------+
+        +---+             |
+                          |
+                          |
+                          |        MCU
+                          |port1 +------+
+     source2(IP2)         +----->x      |             destination(IP4)
+        +---+              port2 |      |              port4 +---+
+        |   |------------------->x      |------------------->x   |
+        +---+              port3 |      |                    +---+
+                          +----->x      |
+                          |      +------+
+                          |
+                          |
+      source3(IP3)        |
+        +---+             |
+        |   |-------------+
+        +---+
